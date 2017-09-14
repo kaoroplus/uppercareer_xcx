@@ -1,0 +1,46 @@
+/**index.wxss**/
+
+
+.article-list {
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.text-title {
+  font-family: '微软雅黑';
+  font-size: 40rpx;
+}
+
+.text-author {
+  font-family: '微软雅黑';
+  font-size: 24rpx;
+}
+
+.article-block {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+}
+
+.article-cover {
+
+  margin-bottom: 8rpx;
+
+}
+
+.article-title {
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  margin-left:20rpx;
+  margin-right:20rpx;
+
+}
+
+.article-description {
+  margin-top: 8rpx;
+  padding-bottom: 20rpx;
+    margin-left:20rpx;
+  margin-right:20rpx;
+
+}
+

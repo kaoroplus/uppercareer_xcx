@@ -1,0 +1,68 @@
+<!--profile.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="profile-block">
+  <view class="avatar-view">
+    <image class="avatar"  src="{{avatarUrl}}"></image>
+  </view>
+  <view class="nickname-view">
+    <text class="text-title">{{nickName}}</text>
+  </view>
+</view>
+
+<view class="function-block">
+  <view class="btn-container" bindtap="onTapExplore">
+   <image class="btn-icon" src="../../images/explore.png"></image>
+   <text class="btn-text">随便逛逛</text>
+  </view>
+  <view class="btn-container" bindtap="onTapFind">
+    <image class="btn-icon" src="../../images/find.png"></image>
+    <text class="btn-text">内容搜索</text>
+  </view>
+  <view class="btn-container" bindtap="onTapEvaluate">
+    <image class="btn-icon" src="../../images/evaluate.png"></image>
+    <text class="btn-text">职业评测</text>
+  </view>
+</view>
+
+
+
+
+<text class="text-recent">浏览历史</text>
+
+<view class="history-container">
+<view class="history-list">
+<block wx:for="{{history}}" wx:for-item="history" wx:key="objectId">
+<view class="history-block" bindtap="historyDetail" id="{{history.forAnswer.objectId}}">
+
+
+
+
+  <view class="history-title">
+    <text>{{history.forAnswer.forQuestion.title}}</text>
+  </view>
+
+  <view class="bottom-info">
+
+  <view class="comment-badge">
+  <image class="icon-comment" src="../../images/comment.png"></image>
+  <text class="text-comment"> {{history.forAnswer.subPostCount + 1 - 1}}</text>
+  </view>
+  <view class="like-badge">
+  <image class="icon-like" src="../../images/like.png"></image>
+  <text class="text-like"> {{history.forAnswer.voteDiff}}</text>
+  </view>
+  <view class="view-badge">
+  <image class="icon-view" src="../../images/view.png"></image>
+  <text class="text-view"> {{history.forAnswer.viewCount * 7 + history.forAnswer.voteDiff * 7}}</text>
+  </view>
+  </view>
+
+
+
+</view>
+</block>
+</view>
+</view>
+
+

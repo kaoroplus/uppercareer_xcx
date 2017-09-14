@@ -1,0 +1,58 @@
+/* search.wxss */
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+    font-size: 36rpx;
+}
+
+.post-user{
+  display: flex;
+  align-items: center;
+  padding:10rpx 0;
+}
+
+.post-avatar{
+
+  width: 40rpx;
+  height: 40rpx;
+  border: 0 solid #ff0000;
+  border-radius: 100rpx;
+  background-color: #f9f9f9;
+    
+}
+
+.post-nickname{
+  color: dimgray;
+  font-size: 28rpx;
+  padding:0 10rpx;
+}
+
+.post-block{
+  display:flex;
+  flex-direction: column;
+}
+
+
+.often-search{
+  padding: 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.btn-often{
+  background-color: #eeeeee;
+  font-size: 28rpx;
+  text-align: center;
+  width:100rpx;
+  font-family: 微软雅黑;
+  margin: 20rpx 20rpx;
+  border-radius: 5rpx;
+}

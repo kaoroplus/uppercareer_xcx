@@ -1,0 +1,78 @@
+<!--forum.wxml-->
+<swiper indicator-dots= "true" circular="true" indicator-active-color="#4ec046" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{articles}}" wx:for-item="article"  wx:for-index="id">  
+        <swiper-item class="swiper-article">  
+        <view class="article-block">
+        <view class="article-cover" bindtap="articleDetail" id="{{article.objectId}}">
+        <image class="img-cover" style="width: 100%; background-color: #eeeeee;" mode="widthFix" src="{{article.cover}}"></image>
+        </view>
+        <view class="article-title" bindtap="articleDetail" id="{{article.objectId}}">
+        <text class="text-title">{{article.title}}</text>
+        </view>
+        </view>
+ 
+        </swiper-item>  
+      </block>  
+</swiper>  
+
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+
+
+
+  <view class="nav bc_white">
+    <view class="{{selected?'green':'default'}}" bindtap="filterHot">热门</view>
+    <view class="{{selected1?'green':'default'}}" bindtap="filterRecent">最新</view>
+  </view>
+
+<view class="answer-container">
+<view class="answer-list">
+<block wx:for="{{answers}}" wx:for-item="answer" wx:key="objectId">
+<view class="answer-block" bindtap="answerDetail" id="{{answer.objectId}}">
+
+  <view class="user-description">
+  <image class="user-portrait" src="{{answer.createdBy.portrait}}"></image>
+  <text class="user-nickname">{{answer.createdBy.nickname}} · 回答了</text>
+  </view>
+
+
+
+  <view class="answer-title">
+    <text>{{answer.forQuestion.title}}</text>
+  </view>
+
+  <view class="bottom-info">
+
+  <view class="comment-badge">
+  <image class="icon-comment" src="../../images/comment.png"></image>
+  <text class="text-comment"> {{answer.subPostCount + 1 - 1}}</text>
+  </view>
+  <view class="like-badge">
+  <image class="icon-like" src="../../images/like.png"></image>
+  <text class="text-like"> {{answer.voteDiff}}</text>
+  </view>
+  <view class="view-badge">
+  <image class="icon-view" src="../../images/view.png"></image>
+  <text class="text-view"> {{answer.viewCount * 7 + answer.voteDiff * 7}}</text>
+  </view>
+  </view>
+
+
+
+</view>
+</block>
+</view>
+</view>
+
+
+<!--
+  <view class="answer-score">
+  <image class="icon-score" src="../../images/article.png"></image>
+  <text class="score"> {{ answer.viewCount * (1 + answer.voteDiff) }} </text>
+
+</view>
+</view>
+
+
+-->

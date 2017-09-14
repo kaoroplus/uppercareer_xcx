@@ -1,0 +1,78 @@
+<!--article.wxml-->
+
+<import src="../../wxParse/wxParse.wxml"/> 
+
+
+
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+
+
+
+<view class="container">
+
+<!--文章-->
+<image class="img-cover" style="width: 750rpx; height: 160rpx; background-color: #eeeeee;" mode="'center'" src="{{article.cover}}"></image>
+<view class="article-block">
+    <view class="article-title">
+      <text class="text-title">{{article.title}}</text>
+    </view>
+    <view class="article-description">
+      <text class="text-author">{{article.author}} · {{article.viewCount * 17}} 阅读</text>
+    </view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:parsedContent.nodes}}"/>
+    </view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:parsedReference.nodes}}"/>
+    </view>
+</view>
+
+<!--评论
+<view class="comment-text">
+  <text class="comment-title">精彩评论</text>
+</view>
+<view class="comment-list">
+    <block wx:for="{{comments}}"  wx:for-item="comment"  wx:for-index="id">
+    <view class="comment-block">
+    <view class="comment-user">
+      
+      <image class="comment-avatar" src="{{comment.createdBy.portrait}}"></image>
+      <text class="comment-nickname">{{ comment.createdBy.nickname }}</text>
+    </view>
+    <view class="comment-body">
+      <text class="comment-body">{{ comment.content }}</text>
+    </view>    
+    </view>
+    </block>
+</view>
+
+<view class="ending-text">
+  <text class="ending-title">没有更多了</text>
+</view>
+
+</view>
+-->
+
+<!--底部按钮-->
+
+  <view class="bottom-function">
+    <view class="bf-backward touch-active" bindtap="backward">
+      <image class="icon-backward" src="../../images/backward.png"></image>
+      <text>返回</text>
+    </view>
+    <view class="bf-home touch-active" bindtap="home">
+      <image class="icon-home" src="../../images/home.png"></image>
+      <text>首页</text>
+    </view>
+    <button class="bf-share touch-active" plain style="width: 500rpx; height:100rpx; color: #000; border-color: #ffffff; font-size: 30rpx;font-family: 微软雅黑,Helvetica,sans-serif;" open-type="share">
+
+      <text>分享本文</text>
+
+    </button>
+  </view>
+
+  </view>
+
+

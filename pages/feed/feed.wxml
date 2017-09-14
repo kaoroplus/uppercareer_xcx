@@ -1,0 +1,19 @@
+<!--feed.wxml-->
+<view class="function-block">
+  <view class="btn-container" bindtap="onTapAlarm">
+   <image class="btn-icon" src="../../images/alarm.png"></image>
+   <text class="btn-text">番茄闹钟</text>
+  </view>
+  <view class="btn-container" bindtap="onTapAsk">
+    <image class="btn-icon" src="../../images/ask.png"></image>
+    <text class="btn-text">悬赏提问</text>
+  </view>
+  <view class="btn-container" bindtap="onTapTodo">
+    <image class="btn-icon" src="../../images/todo.png"></image>
+    <text class="btn-text">日程</text>
+  </view>
+  <view class="btn-container" bindtap="onTapWorklog">
+    <image class="btn-icon" src="../../images/worklog.png"></image>
+    <text class="btn-text">写日志</text>
+  </view>
+</view>

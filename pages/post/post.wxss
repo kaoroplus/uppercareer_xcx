@@ -1,0 +1,118 @@
+/* post.wxss */
+.wxParse{
+    font-family: 微软雅黑,Helvetica,sans-serif;
+    font-size: 32rpx;
+    color: #000;
+    line-height: 1.8;
+    margin:20rpx -10rpx;
+    padding:0 10rpx;
+    border-image-width: 500rpx;
+    background-color: #f9f9f9;
+}
+
+.post-block{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  padding:0 40rpx;
+  background-color: #ffffff;
+
+}
+
+.post-title{
+  margin:30rpx 0rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.post-user{
+  display: flex;
+  align-items: center;
+  padding:10rpx 0;
+}
+
+.post-des{
+  margin:30rpx 10rpx 0 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  color:#4ec046;
+}
+
+.post-avatar{
+
+  width: 50rpx;
+  height: 50rpx;
+  border: 0 solid #ff0000;
+  border-radius: 100rpx;
+  background-color: #f9f9f9;
+    
+}
+
+.post-nickname{
+  color: dimgray;
+  font-size: 28rpx;
+  padding:0 10rpx;
+}
+
+
+.answer-title{
+  text-align: left;
+  padding:0 40rpx;
+}
+
+.answer-text{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  font-size: 32rpx;
+  padding: 40rpx 0;
+  width:100%;
+}
+
+.ending-text{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  font-size: 28rpx;
+  padding:50rpx 0;
+  width:100%;
+  color:dimgray;
+  text-align: center;
+}
+
+.answer-list{
+ 
+
+  width:100%;
+
+}
+
+.answer-block{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  background-color: #ffffff;
+  padding:30rpx 40rpx;
+  border-bottom: 1rpx solid #eeeeee;
+
+
+}
+
+.answer-body{
+  padding:20rpx 0;
+  font-size:32rpx;
+  color:#333333;
+}
+.answer-user{
+  display: flex;
+  align-items: center;
+  padding:10rpx 0;
+}
+
+.answer-avatar{
+
+  width: 50rpx;
+  height: 50rpx;
+  border: 0 solid #ff0000;
+  border-radius: 100rpx;
+  background-color: #f9f9f9;
+    
+}
+
+.answer-nickname{
+  color: dimgray;
+  font-size: 28rpx;
+  padding:0 10rpx;
+}

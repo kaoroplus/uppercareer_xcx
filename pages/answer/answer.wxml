@@ -1,0 +1,100 @@
+<!--answer.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+
+
+
+<view class="container">
+
+<!--答案-->
+<view class="answer-block">
+    <view class="answer-title">
+      <text class="text-title">{{answer.forQuestion.title}}</text>
+    </view>
+
+    <view class="answer-user">
+      
+      <image class="answer-avatar" src="{{answer.createdBy.portrait}}"></image>
+      <text class="answer-nickname">{{ answer.createdBy.nickname }}</text>
+        <view class="bottom-info">
+        <view class="comment-badge">
+        <image class="icon-comment" src="../../images/comment.png"></image>
+        <text class="text-comment"> {{answer.subPostCount + 1 - 1}}</text>
+        </view>
+        <view class="like-badge">
+        <image class="icon-like" src="../../images/like.png"></image>
+        <text class="text-like"> {{answer.voteDiff}}</text>
+        </view>
+        <view class="view-badge">
+        <image class="icon-view" src="../../images/view.png"></image>
+        <text class="text-view"> {{answer.viewCount * 7 + answer.voteDiff * 7}}</text>
+        </view>
+        </view>
+    </view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:parsedContent.nodes}}"/>
+    </view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:parsedReference.nodes}}"/>
+    </view>
+</view>
+
+<!--评论-->
+<view class="comment-text">
+  <text class="comment-title">精彩评论</text>
+</view>
+<view class="comment-list">
+    <block wx:for="{{comments}}"  wx:for-item="comment"  wx:for-index="id">
+    <view class="comment-block">
+    <view class="comment-user">
+      
+      <image class="comment-avatar" src="{{comment.createdBy.portrait}}"></image>
+      <text class="comment-nickname">{{ comment.createdBy.nickname }}</text>
+    </view>
+    <view class="comment-body">
+      <text class="comment-body">{{ comment.content }}</text>
+    </view>    
+    </view>
+    </block>
+</view>
+
+<view class="ending-text">
+  <text class="ending-title">没有更多了</text>
+</view>
+
+</view>
+
+ <!--收藏 分享-->
+
+  <view class="bottom-function">
+    <view class="bf-backward touch-active" bindtap="backward">
+      <image class="icon-backward" src="../../images/backward.png"></image>
+      <text>返回</text>
+    </view>
+    <view class="bf-home touch-active" bindtap="home">
+      <image class="icon-home" src="../../images/home.png"></image>
+      <text>首页</text>
+    </view>
+    <button class="bf-share touch-active" plain style="width: 500rpx; height:100rpx; color: #000; border-color: #ffffff; font-size: 30rpx;font-family: 微软雅黑,Helvetica,sans-serif;" open-type="share">
+
+      <text>分享本文</text>
+
+    </button>
+  </view>
+
+
+ <!--评论盒子 备用
+
+  <view class="comment-fixed">
+    <view class="cf-box">
+
+      <input class="weui-input" bindinput="commentInput" placeholder="我也来说两句" />
+
+      <text class="cf-send touch-active" bindtap="send">发送</text>
+    </view>
+  </view>
+  -->

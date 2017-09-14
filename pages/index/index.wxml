@@ -1,0 +1,22 @@
+
+<!--index.wxml-->
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+<view class="container">
+  <view class="article-list">
+    <block wx:for="{{articles}}"  wx:for-item="article"  wx:for-index="id">
+    <view class="article-block">
+    <view class="article-cover" bindtap="articleDetail" id="{{article.objectId}}">
+      <image class="img-cover" style="width: 700rpx; height: 150rpx; background-color: #eeeeee;" mode="'center'" src="{{article.cover}}"></image>
+    </view>
+    <view class="article-title" bindtap="articleDetail" id="{{article.objectId}}">
+      <text class="text-title">{{article.title}}</text>
+    </view>
+    <view class="article-description">
+      <text class="text-author">{{article.author}} · {{article.viewCount * 17}} 阅读</text>
+    </view>
+    </view>
+    </block>
+ </view>
+</view>

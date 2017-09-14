@@ -1,0 +1,56 @@
+<!--post.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="container">
+
+<!--问题-->
+<view class="post-block">
+    <view class="post-title">
+      <text class="text-title">{{title}}</text>
+    </view>
+    <view class="post-user">
+      
+      <image class="post-avatar" src="{{post.createdBy.portrait}}"></image>
+      <text class="post-nickname">{{ post.createdBy.nickname }}</text>
+    </view>
+
+    <view class="post-des">
+      <text class="text-des">问题描述：</text>
+    </view>
+
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:parsedContent.nodes}}"/>
+    </view>
+
+</view>
+
+<!--答案列表-->
+<view class="answer-text">
+  <text class="answer-title">全部回答</text>
+</view>
+<view class="answer-list">
+    <block wx:for="{{answers}}"  wx:for-item="answer"  wx:for-index="idx">
+    <view class="answer-block">
+    <view class="answer-user">
+      
+      <image class="answer-avatar" src="{{answer.createdBy.portrait}}"></image>
+      <text class="answer-nickname">{{ answer.createdBy.nickname }}</text>
+    </view>
+    <view class="wxParse" bindtap="onTapAnswer" id="{{answer.objectId}}">
+      <template is="wxParse" data="{{wxParseData:replyTemArray[idx]}}"/>
+    </view>  
+    </view>
+    </block>
+</view>
+
+<view class="ending-text">
+  <text class="ending-title">没有更多了</text>
+</view>
+
+
+
+
+
+</view>
+
+

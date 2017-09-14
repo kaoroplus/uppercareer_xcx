@@ -1,0 +1,180 @@
+.wxParse{
+    font-family: 微软雅黑,Helvetica,sans-serif;
+    font-size: 36rpx;
+    color: #000;
+    line-height: 1.8;
+    margin:30rpx 0rpx;
+    border-image-width: 500rpx;
+}
+
+.article-block{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  padding:0rpx 40rpx;
+  padding-bottom: 100rpx;
+  background-color: #ffffff;
+
+}
+
+.article-title{
+  margin:30rpx 0rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.article-description{
+  margin:40rpx 0rpx;
+  font-size: 28rpx;
+  color:dimgray;
+}
+
+.comment-list{
+ 
+
+  width:100%;
+
+}
+
+.comment-block{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  background-color: #ffffff;
+  padding:10rpx 40rpx;
+
+}
+
+.comment-body{
+  padding:10rpx 0;
+  font-size:32rpx;
+  color:#333333;
+}
+.comment-user{
+  display: flex;
+  align-items: center;
+  padding:10rpx 0;
+}
+
+.comment-avatar{
+
+  width: 50rpx;
+  height: 50rpx;
+  border: 0 solid #ff0000;
+  border-radius: 100rpx;
+  background-color: #f9f9f9;
+    
+}
+
+.comment-nickname{
+  color: dimgray;
+  font-size: 28rpx;
+  padding:0 10rpx;
+}
+
+.comment-index{
+  color: #aaaaaa;
+  font-size: 28rpx;
+  padding-right: 40rpx;
+  
+}
+
+.comment-text{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  font-size: 32rpx;
+  padding:40rpx 0;
+  width:100%;
+}
+
+.comment-title{
+  text-align: left;
+  padding:0 40rpx;
+}
+
+.ending-text{
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  font-size: 28rpx;
+  padding:50rpx 0;
+  width:100%;
+  color:dimgray;
+  text-align: center;
+}
+
+
+.bottom-function {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.bf-backward {
+  width: 125rpx;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24rpx;
+  background-color: #ffffff;
+  color: dimgray;
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  border-right:1rpx solid #eeeeee;
+}
+
+.bf-backward.touch-active:active {
+  background-color: #f9f9f9;
+}
+
+.icon-backward {
+  height: 32rpx;
+  width: 32rpx;
+}
+
+.bf-home {
+  width: 125rpx;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24rpx;
+  background-color: #ffffff;
+  color: dimgray;
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  border-right:1rpx solid #eeeeee;
+}
+
+.bf-home.touch-active:active {
+  background-color: #f9f9f9;
+}
+
+.icon-home {
+  height: 32rpx;
+  width: 32rpx;
+}
+
+.iconbutton-favourite{
+  display: flex;
+  align-items: center;
+
+}
+
+
+.bf-share {
+  width: 500rpx;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.bf-share.touch-active:active {
+  background-color: #f9f9f9;
+}
+
