@@ -1,2 +1,5 @@
-<!--pages/quiz/quiz.wxml-->
-<text>pages/quiz/quiz.wxml</text>
+<!--profile.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="container">
+
+</view>

@@ -33,7 +33,7 @@ Page({
   },
 
   onTapEvaluate: function () {
-    wx.switchTab({
+    wx.redirectTo({
       url: '../quiz/quiz'
     })
 

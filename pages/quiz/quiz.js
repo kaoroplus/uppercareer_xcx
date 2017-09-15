@@ -1,11 +1,13 @@
 // pages/quiz/quiz.js
+var common = require('questions.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      question : common.questions
   },
 
   /**
