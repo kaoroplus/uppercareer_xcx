@@ -67,6 +67,7 @@ const Questions = [
   { content: '大家公认我是一名勤劳踏实的、愿为大家服务的人。', style: YesorNo, index: 59 },
   { content: '我喜欢在人事部门工作。', style: YesorNo, index: 60 },
 ];
+var answer = [];
 
 Page({
 
@@ -117,7 +118,8 @@ Page({
       }
 
       this.setData({
-          radioItems: radioItems
+          radioItems: radioItems,
+          isDisabled: false
       });
   },
   checkboxChange: function (e) {
@@ -144,9 +146,16 @@ Page({
    * 下一题
    */
   onTapButtenNext: function () {
+    var radioItems = this.data.radioItems;
     index++;
+    for (var i = 0, len = radioItems.length; i < len; ++i) {
+      radioItems[i].checked = false;
+    }
     this.setData({
-      question: Questions[index]
+      question: Questions[index],
+      isDisabled: true,
+      radioItems: radioItems
+
     })
   },
 

@@ -35,6 +35,6 @@
         </view>
     </view>
 
-         <button class="weui-btn" type="primary" plain="true" bindtap="onTapButtenNext">下一题</button>
+         <button class="weui-btn" type="primary" plain="true" bindtap="onTapButtenNext" disabled="{{isDisabled}}">下一题</button>
 
        
