@@ -1,5 +1,5 @@
 // pages/quiz/quiz.js
-var common = require('questions.js')
+const common = require('questions.js')
 
 Page({
 
@@ -7,8 +7,61 @@ Page({
    * 页面的初始数据
    */
   data: {
-      question : common.questions
+    questions : [
+      { content: '我喜欢把一件事情做完后再做另一件事。', index: 1 },
+      { content: '在工作中我喜欢独自筹划，不愿受别人干涉。', index: 2 },
+
+    ],
+
+    showTopTips: false,
+
+    radioItems: [
+      { name: '是', value: '0' },
+      { name: '不是', value: '1' },
+    ],
+    checkboxItems: [
+      { name: 'A', value: '0' },
+      { name: 'B', value: '1' },
+      { name: 'C', value: '2' },
+      { name: 'D', value: '3' },
+      { name: 'E', value: '4' },
+    ],
+
+    isAgree: false,
+
   },
+
+      radioChange: function (e) {
+        console.log('radio发生change事件，携带value值为：', e.detail.value);
+
+        var radioItems = this.data.radioItems;
+        for (var i = 0, len = radioItems.length; i < len; ++i) {
+            radioItems[i].checked = radioItems[i].value == e.detail.value;
+        }
+
+        this.setData({
+            radioItems: radioItems
+        });
+    },
+    checkboxChange: function (e) {
+        console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+
+        var checkboxItems = this.data.checkboxItems, values = e.detail.value;
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            checkboxItems[i].checked = false;
+
+            for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
+                if(checkboxItems[i].value == values[j]){
+                    checkboxItems[i].checked = true;
+                    break;
+                }
+            }
+        }
+
+        this.setData({
+            checkboxItems: checkboxItems
+        });
+    },
 
   /**
    * 生命周期函数--监听页面加载
