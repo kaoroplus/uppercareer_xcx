@@ -68,6 +68,14 @@ const Questions = [
   { content: '我喜欢在人事部门工作。', style: YesorNo, index: 60 },
 ];
 var answer = [];
+var result = {
+  realistic: 0,
+  enterprise: 0,
+  common: 0,
+  artistic: 0,
+  social: 0,
+  investigate: 0
+}
 
 Page({
 
@@ -75,19 +83,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    result:
-    {
-      tradition: 0,
-      realistic: 0,
-      explore: 0,
-      social: 0,
-      artistic: 0,
-      enterprise: 0
-    },
-
-    
-
-
+    result: null,
     question: null,    
 
     showTopTips: false,
@@ -96,8 +92,8 @@ Page({
     isSummitHidden:true,
 
     radioItems: [
-      { name: '是', value: '0' },
-      { name: '不是', value: '1' },
+      { name: '是', value: 1 },
+      { name: '不是', value: 0 },
     ],
     checkboxItems: [
       { name: 'A', value: '0' },
@@ -113,7 +109,7 @@ Page({
 
     radioChange: function (e) {
       console.log('radio发生change事件，携带value值为：', e.detail.value);
-
+      answer[index] = e.detail.value;
       var radioItems = this.data.radioItems;
       for (var i = 0, len = radioItems.length; i < len; ++i) {
           radioItems[i].checked = radioItems[i].value == e.detail.value;
@@ -149,6 +145,7 @@ Page({
    */
   onTapButtonNext: function () {
     var radioItems = this.data.radioItems;
+    console.log('答案变更，结果为：', answer[index]);    
     index++;
     for (var i = 0, len = radioItems.length; i < len; ++i) {
       radioItems[i].checked = false;
@@ -160,7 +157,11 @@ Page({
 
     });
 
+<<<<<<< HEAD
     if(index == 2){
+=======
+    if(index == 10){
+>>>>>>> f1dc11b86e8f6f90ac3d1c0a99cff20bb3d3edd3
       this.setData({
         isNextHidden: true,
         isSummitHidden: false
@@ -169,13 +170,29 @@ Page({
     }
   },
 
-  onTapButtonFinish: function() {
+  /**
+   * 提交答案
+   */
+  onTapButtonFinish: function () {
+    result.artistic = answer[4] + answer[9] + answer[10] + answer[17] + answer[33] + answer[34] + answer[49] + answer[50] + answer[54];
+    result.artistic = (1 - answer[32]);
+    result.common = answer[7] + answer[19] + answer[29] + answer[39] + answer[41] + answer[51] + answer[57];
+    result.common = (1 - answer[5]) + (1 - answer[18]) + (1 - answer[40]);
+    result.enterprise = answer[11] + answer[24] + answer[28] + answer[35] + answer[38] + answer[46] + answer[60];
+    result.enterprise = (1 - answer[3]) + (1 - answer[16]) + (1 - answer[25]);
+    result.investigate = answer[6] + answer[8] + answer[20] + answer[30] + answer[31] + answer[42];
+    result.investigate = (1 - answer[21]) + (1 - answer[55]) + (1 - answer[56]) + (1 - answer[58]);
+    result.realistic = answer[2] + answer[13] + answer[22] + answer[36] + answer[43];
+    result.realistic = (1 - answer[14]) + (1 - answer[23]) + (1 - answer[44]) + (1 - answer[47]) + (1 - answer[48]);
+    result.social = answer[26] + answer[37] + answer[52] + answer[59];
+    result.social = (1 - answer[1]) + (1 - answer[12]) + (1 - answer[15]) + (1 - answer[27]) + (1 - answer[45]) + (1 - answer[53]);
+    console.log(result);
+    console.log(answer);
     wx.redirectTo({
       url: '../result/result'
     })
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
