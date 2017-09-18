@@ -92,6 +92,8 @@ Page({
 
     showTopTips: false,
     isDisabled:true,
+    isNextHidden: false,
+    isSummitHidden:true,
 
     radioItems: [
       { name: '是', value: '0' },
@@ -145,7 +147,7 @@ Page({
   /**
    * 下一题
    */
-  onTapButtenNext: function () {
+  onTapButtonNext: function () {
     var radioItems = this.data.radioItems;
     index++;
     for (var i = 0, len = radioItems.length; i < len; ++i) {
@@ -156,7 +158,22 @@ Page({
       isDisabled: true,
       radioItems: radioItems
 
+    });
+
+    if(index == Questions.length - 1){
+      this.setData({
+        isNextHidden: true,
+        isSummitHidden: false
+
+      })
+    }
+  },
+
+  onTapButtonFinish: function() {
+    wx.redirectTo({
+      url: '../result/result'
     })
+
   },
 
   /**
