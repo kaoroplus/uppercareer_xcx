@@ -157,7 +157,7 @@ Page({
 
     });
 
-    if(index == Questions.length - 1){
+    if(index == 10){
       this.setData({
         isNextHidden: true,
         isSummitHidden: false
@@ -166,16 +166,10 @@ Page({
     }
   },
 
-  onTapButtonFinish: function() {
-    wx.redirectTo({
-      url: '../result/result'
-    })
-
-  },
   /**
    * 提交答案
    */
-  onTapButtenFinish: function () {
+  onTapButtonFinish: function () {
     result.artistic = answer[4] + answer[9] + answer[10] + answer[17] + answer[33] + answer[34] + answer[49] + answer[50] + answer[54];
     result.artistic = (1 - answer[32]);
     result.common = answer[7] + answer[19] + answer[29] + answer[39] + answer[41] + answer[51] + answer[57];
@@ -188,6 +182,12 @@ Page({
     result.realistic = (1 - answer[14]) + (1 - answer[23]) + (1 - answer[44]) + (1 - answer[47]) + (1 - answer[48]);
     result.social = answer[26] + answer[37] + answer[52] + answer[59];
     result.social = (1 - answer[1]) + (1 - answer[12]) + (1 - answer[15]) + (1 - answer[27]) + (1 - answer[45]) + (1 - answer[53]);
+    console.log(result);
+    console.log(answer);
+    wx.redirectTo({
+      url: '../result/result'
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
