@@ -11,7 +11,8 @@
     "pages/post/post",
     "pages/evaluate/evaluate",
     "pages/test/test",
-    "pages/quiz/quiz"
+    "pages/quiz/quiz",
+    "pages/result/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

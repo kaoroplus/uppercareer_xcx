@@ -1,0 +1,11 @@
+
+<view class="container">
+    <view class="result-title">你的职业人格类型是：</view>
+    <canvas canvas-id="radarCanvas" class="canvas" bindtouchstart="touchHandler">
+    </canvas>
+</view>
+
+    <view class="btn-area">
+    <button class="back-btn" type="primary" plain="true" bindtap="onTapHome">返回首页</button>
+    <button class="more-btn" type="primary" plain="true" bindtap="onTapHome">相关文章</button>
+    </view>
