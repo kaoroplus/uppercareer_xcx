@@ -88,6 +88,8 @@ Page({
 
     showTopTips: false,
     isDisabled:true,
+    isNextHidden: false,
+    isSummitHidden:true,
 
     radioItems: [
       { name: '是', value: 1 },
@@ -141,7 +143,7 @@ Page({
   /**
    * 下一题
    */
-  onTapButtenNext: function () {
+  onTapButtonNext: function () {
     var radioItems = this.data.radioItems;
     console.log('答案变更，结果为：', answer[index]);    
     index++;
@@ -154,6 +156,21 @@ Page({
       radioItems: radioItems
 
     });
+
+    if(index == Questions.length - 1){
+      this.setData({
+        isNextHidden: true,
+        isSummitHidden: false
+
+      })
+    }
+  },
+
+  onTapButtonFinish: function() {
+    wx.redirectTo({
+      url: '../result/result'
+    })
+
   },
   /**
    * 提交答案

@@ -35,6 +35,8 @@
         </view>
     </view>
 
-         <button class="weui-btn" type="primary" plain="true" bindtap="onTapButtenNext" disabled="{{isDisabled}}">下一题</button>
+    <button class="weui-btn" type="primary" plain="true" bindtap="onTapButtonNext" disabled="{{isDisabled}}" hidden="{{isNextHidden}}">下一题</button>
+    <button class="weui-btn" type="primary" plain="true" bindtap="onTapButtonFinish" disabled="{{isDisabled}}" hidden="{{isSummitHidden}}">提交答案</button>
+
 
        
