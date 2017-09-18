@@ -35,6 +35,6 @@
         </view>
     </view>
 
-         <button class="weui-btn" type="primary" plain="true">下一题</button>
+    <button class="weui-btn" type="primary" plain="true" disabled="{{isDisabled}}">下一题</button>
 
        
