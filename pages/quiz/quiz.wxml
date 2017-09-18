@@ -2,8 +2,8 @@
     <view class="single-choice" >
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
         <view class="weui-cells__title">
-        <view class="question-index">问题{{questions[0].index}}：</view>
-        <view class="question-content">{{questions[0].content}}</view>
+        <view class="question-index">问题{{question.index}}：</view>
+        <view class="question-content">{{question.content}}</view>
         </view>
         <view class="weui-cells weui-cells_after-title">
             <radio-group bindchange="radioChange">
@@ -35,6 +35,6 @@
         </view>
     </view>
 
-         <button class="weui-btn" type="primary" plain="true">下一题</button>
+         <button class="weui-btn" type="primary" plain="true" bindtap="onTapButtenNext">下一题</button>
 
        
