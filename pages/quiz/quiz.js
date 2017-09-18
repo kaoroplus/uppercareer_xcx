@@ -90,6 +90,7 @@ Page({
     question: null,    
 
     showTopTips: false,
+    isDisabled:true,
 
     radioItems: [
       { name: '是', value: '0' },
