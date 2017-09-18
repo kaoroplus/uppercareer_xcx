@@ -160,7 +160,7 @@ Page({
 
     });
 
-    if(index == Questions.length - 1){
+    if(index == 2){
       this.setData({
         isNextHidden: true,
         isSummitHidden: false

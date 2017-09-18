@@ -10,6 +10,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    result : {
+      realistic: 5,
+      enterprise: 6,
+      common: 4,
+      artistic: 8,
+      social: 2,
+      investigate: 10
+    }
   
   },
 
@@ -26,15 +35,22 @@ Page({
    */
   onLoad: function (options) {
     var windowWidth = 320;
+    var chartData = new Array();
+    chartData.push(this.data.result.realistic);
+    chartData.push(this.data.result.enterprise);
+    chartData.push(this.data.result.common);
+    chartData.push(this.data.result.realistic);
+    chartData.push(this.data.result.artistic);
+    chartData.push(this.data.result.investigate);
 
 
     radarChart = new wxCharts({
       canvasId: 'radarCanvas',
       type: 'radar',
-      categories: ['传统', '管理', '社会', '艺术', '研究', '现实'],
+      categories: ['现实型', '管理型', '传统型', '艺术型', '社会型', '研究型'],
       series: [{
         name: '职业性格类型',
-        data: [9, 1, 5, 5, 7, 2],
+        data: chartData,
         color:'#4ec046'
       }],
       width: 300,
