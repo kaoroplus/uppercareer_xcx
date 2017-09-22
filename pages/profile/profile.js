@@ -26,8 +26,8 @@ Page({
   },
 
   onTapFind: function () {
-    wx.switchTab({
-      url: '../search/search'
+    wx.redirectTo({
+      url: '../judge/judge'
     })
 
   },

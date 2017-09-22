@@ -1,0 +1,29 @@
+<!--pages/judge/judge.wxml-->
+<view class="container">
+<view class="page-background">
+<view class="post-block">
+  <view class="avatar-view">
+    <image class="avatar"  src="../../images/explore.png"></image>
+  </view>
+  <view class="nickname-view">
+    <text class="text-title">示例用户</text>
+  </view>
+  <view class="post-content">
+    <text class="text-content">这是一条测试post，用户可以在下方选择我觉得可以或者我觉得不行，这是一条非常长的描述</text>
+  </view>
+</view>
+</view>
+</view>
+
+
+<!--
+  <view class="btn-area">
+    <button class="agree-btn" type="primary" plain="true" bindtap="onTapAgree">可以</button>
+    <image class="compose-btn" src="../../images/compose.png" bindtap='onTapCompose'></image>
+    <button class="disagree-btn" type="primary" plain="true" bindtap="onTapDisagree">不行</button>
+  </view>
+  <view class="weui-progress__bar">
+    <progress percent="80" stroke-width="10" />
+  </view>
+  -->
+

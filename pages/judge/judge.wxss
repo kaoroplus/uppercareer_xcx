@@ -1,0 +1,88 @@
+/* pages/judge/judge.wxss */
+
+.page-background{
+  background: linear-gradient(#71d6e8,#6c99d8);
+
+  height: 100vh;
+
+
+}
+.post-block{
+
+  
+
+  margin: 40rpx;
+  border-radius: 20rpx;
+
+ 
+
+  
+}
+
+.avatar-view{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  padding:40rpx 0;
+
+  
+}
+
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 100rpx;
+  background-color: #f9f9f9;
+  
+}
+
+
+.nickname-view{
+  display:flex;
+  background-color: #fff;
+  justify-content: center;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+  font-family: 微软雅黑,Helvetica,sans-serif;
+  padding-top: 20rpx;
+}
+
+.post-content{
+  background-color: #fff;
+  font-size: 32rpx;
+  padding: 40rpx;
+}
+
+
+.btn-area{
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+}
+
+.agree-btn{
+  width:200rpx;
+}
+
+.disagree-btn{
+  width:200rpx;
+}
+
+.compose-btn{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100rpx;
+  background-color: red;
+}
+
+
+.weui-progress__bar{
+  position: fixed;
+  bottom: 50rpx;
+  left: 40rpx;
+  right: 40rpx;
+
+}

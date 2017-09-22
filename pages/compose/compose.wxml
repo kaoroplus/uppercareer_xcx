@@ -1,0 +1,40 @@
+<!--pages/compose/compose.wxml-->
+<view class="weui-cells__title">文本框输入标题</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+      <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+      <view class="weui-textarea-counter">0/3000</view>
+    </view>
+  </view>
+</view>
+
+   <view class="page__bd">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">图片上传</view>
+                            <view class="weui-uploader__info">{{files.length}}/1</view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{files}}" wx:key="*this">
+                                    <view class="weui-uploader__file" bindtap="previewImage" bindlongtap="deleteImage" bindtouchend="onTouchend" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box" hidden="{{isUploadHidden}}">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <button class="weui-btn" type="primary">页面主操作 Normal</button>

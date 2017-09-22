@@ -14,7 +14,9 @@
     "pages/quiz/quiz",
     "pages/result/result",
     "pages/quizcover/quizcover",
-    "pages/resultshare/resultshare"
+    "pages/resultshare/resultshare",
+    "pages/judge/judge",
+    "pages/compose/compose"
   ],
   "window": {
     "backgroundTextStyle": "light",
