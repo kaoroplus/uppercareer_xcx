@@ -12,7 +12,9 @@
     "pages/evaluate/evaluate",
     "pages/test/test",
     "pages/quiz/quiz",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/quizcover/quizcover",
+    "pages/resultshare/resultshare"
   ],
   "window": {
     "backgroundTextStyle": "light",

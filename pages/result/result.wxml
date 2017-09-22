@@ -6,6 +6,7 @@
 </view>
 
     <view class="btn-area">
-    <button class="back-btn" type="primary" plain="true" bindtap="onTapHome">返回首页</button>
-    <button class="more-btn" type="primary" plain="true" bindtap="onTapHome">相关文章</button>
+    <button class="back-btn" type="primary" plain="true" bindtap="onTapHome">相关文章</button>
+    <button class="more-btn" type="primary" plain="true" bindtap="onTapSave" hidden="{{isSaveHidden}}">保存结果</button>
+    <button class="more-btn" type="primary" plain="true" bindtap="onTapBack" hidden="{{isBackHidden}}">重新答题</button>
     </view>

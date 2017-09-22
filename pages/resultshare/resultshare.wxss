@@ -1,0 +1,21 @@
+/* pages/resultshare/resultshare.wxss */
+.result-title{
+  padding-top: 40rpx;
+}
+
+.canvas{
+  height:300px;
+}
+
+.btn-area{
+  display: flex;
+  justify-content: space-around;
+}
+
+.back-btn{
+  width:300rpx;
+}
+
+.try-btn{
+  width:300rpx;
+}

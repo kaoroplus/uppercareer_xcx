@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="result-title">{{user}}的职业人格类型是：</view>
+    <canvas canvas-id="radarCanvas" class="canvas" bindtouchstart="touchHandler">
+    </canvas>
+</view>
+
+    <view class="btn-area">
+    <button class="back-btn" type="primary" plain="true" bindtap="onTapHome">相关文章</button>
+    <button class="try-btn" type="primary" plain="true" bindtap="onTapTry" hidden="{{isBackHidden}}">我也要测</button>
+    </view>

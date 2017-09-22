@@ -34,7 +34,7 @@ Page({
 
   onTapEvaluate: function () {
     wx.redirectTo({
-      url: '../quiz/quiz'
+      url: '../quizcover/quizcover'
     })
 
   },

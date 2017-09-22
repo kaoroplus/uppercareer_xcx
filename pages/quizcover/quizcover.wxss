@@ -1,0 +1,20 @@
+/* quizcover.wxss */
+.container{
+  
+}
+.title{
+  font-size: 48rpx;
+  padding: 40rpx 40rpx;
+
+}
+
+.content{
+  font-size: 32rpx;
+  margin:0 40rpx 40rpx 40rpx;
+
+}
+
+.start-btn{
+  width: 300rpx;
+  margin-bottom: 100rpx;
+}

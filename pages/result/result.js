@@ -3,6 +3,7 @@
 var wxCharts = require('../../utils/wxcharts-shangzhi.js');
 var app = getApp();
 var radarChart = null;
+var jsonResult = null;
 
 Page({
 
@@ -11,21 +12,144 @@ Page({
    */
   data: {
 
-    result : {
-      realistic: 5,
-      enterprise: 6,
-      common: 4,
-      artistic: 8,
-      social: 2,
-      investigate: 10
-    }
+    isSaveHidden: false,
+    isBackHidden: true,
+
   
   },
 
   onTapHome: function () {
 
+    wx.switchTab({
+      url: '../index/index'
+    })
+
+  },
+
+  onTapSave: function() {
+
+    var that = this;
+  
+
+    var path;
+    wx.canvasToTempFilePath({
+      x: 0,
+      y: 0,
+      width: 500,
+      height: 500,
+      //destWidth: 100,
+      //destHeight: 100,
+      canvasId: 'radarCanvas',
+      success: function (res) {
+        console.log(res.tempFilePath)
+        path = res.tempFilePath
+      }
+    })
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {
+              wx.saveImageToPhotosAlbum({
+                filePath: path,
+                complete(c) {
+                  console.log(c)
+                },
+                success(data) {
+                  wx.showModal({
+                    title: '保存成功',
+                    content: '测试结果已保存至相册。',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        that.setData({
+                          isBackHidden: false,
+                          isSaveHidden: true
+                        });
+
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                },
+                fail(f) {
+                  wx.showModal({
+                    title: '保存失败',
+                    content: '您的机型暂时不支持小程序图片保存，请截图保存。',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        that.setData({
+                          isBackHidden: false,
+                          isSaveHidden: true
+                        });
+
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                },
+              })
+            }
+          })
+        }
+        if (res.authSetting['scope.writePhotosAlbum']){
+          wx.saveImageToPhotosAlbum({
+            filePath: path,
+            complete(c) {
+              console.log(c)
+            },
+            success(data) {
+              wx.showModal({
+                title: '保存成功',
+                content: '测试结果已保存至相册.',
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    that.setData({
+                      isBackHidden: false,
+                      isSaveHidden: true
+                    });
+ 
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            },
+            fail(f) {
+              wx.showModal({
+                title: '保存失败',
+                content: '您的机型暂时不支持小程序图片保存，请截图保存。',
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    that.setData({
+                      isBackHidden: false,
+                      isSaveHidden: true
+                    });
+
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+              console.log(f);
+            },
+          })
+
+        }
+      }
+    })
+  },
+
+  onTapBack: function() {
     wx.redirectTo({
-      url: '../forum/forum'
+      url: '../quizcover/quizcover'
     })
 
   },
@@ -34,20 +158,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.jsonStr);
+    
+    let result = JSON.parse(options.jsonStr);
+
+    var resultForUser = new Array();
+    
+    resultForUser.push(result.realistic);
+    resultForUser.push(result.common);
+    resultForUser.push(result.enterprise);
+    resultForUser.push(result.social);
+    resultForUser.push(result.artistic);
+    resultForUser.push(result.investigate);
+    if (app.globalData.userInfo != null) {
+      resultForUser.push(app.globalData.userInfo.nickName);
+    }
+    jsonResult = JSON.stringify(resultForUser);
+    
     var windowWidth = 320;
     var chartData = new Array();
-    chartData.push(this.data.result.realistic);
-    chartData.push(this.data.result.enterprise);
-    chartData.push(this.data.result.common);
-    chartData.push(this.data.result.realistic);
-    chartData.push(this.data.result.artistic);
-    chartData.push(this.data.result.investigate);
+    chartData.push(result.realistic);
+    chartData.push(result.common);
+    chartData.push(result.enterprise);
+    chartData.push(result.social);
+    chartData.push(result.artistic);
+    chartData.push(result.investigate);
 
 
     radarChart = new wxCharts({
       canvasId: 'radarCanvas',
       type: 'radar',
-      categories: ['现实型', '管理型', '传统型', '艺术型', '社会型', '研究型'],
+      categories: ['现实型', '传统型', '管理型', '社会型', '艺术型', '研究型'],
       series: [{
         name: '职业性格类型',
         data: chartData,
@@ -110,7 +251,25 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    var userName = '匿名用户';
+    if(app.globalData.userInfo != null) {
+      userName = app.globalData.userInfo.nickName;
+    }
+    if (res.from === 'menu') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: userName + '的职业人格是：',
+      path: '/pages/resultshare/resultshare?jsonStr=' + jsonResult,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   
   }
 })

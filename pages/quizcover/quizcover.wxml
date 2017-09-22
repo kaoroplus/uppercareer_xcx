@@ -1,0 +1,9 @@
+<!--quizcover.wxml-->
+<view class="container">
+    <image class="img-cover" style="width: 750rpx;" mode="'center'" src="http://ac-5ptnj5ff.clouddn.com/514899366b092c8fd30c.jpg"></image>
+
+    <view class="title">霍兰德职业兴趣测试</view>
+    <view class="content">这是美国约翰・霍普金斯大学心理学教授霍兰德提出的职业兴趣理论。他认为人的人格类型、兴趣与职业密切相关，而且职业兴趣与人格之间存在很高的相关性。人格可以分为现实型、研究型、艺术型、社会型、企业型和常规型六种类型，再通过个人兴趣爱好判断，测评出比较适合这个人的职业类型。</view>
+    <button class="start-btn" type="primary" plain="true" bindtap="onTapStart">开始测试</button>
+
+</view>
