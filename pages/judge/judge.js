@@ -17,6 +17,7 @@ Page({
     votePercent: 50,
     judgementIndex: 0,
     judgement: null,
+    imagePosition: 550
   },
 
   onTapCompose: function () {
@@ -28,6 +29,7 @@ Page({
   },
 
   onTapAgree: function () {
+    currentUser = app.globalData.user.toJSON().objectId;
     //投票值显示归零
     this.setData({
       votePercent: 50
@@ -39,7 +41,7 @@ Page({
     // 保存到云端
     judgement.save();
 
-    var voteJudgement = new AV.Object('VoteJudgement');// 构建 Comment 对象
+    var voteJudgement = new AV.Object('VoteJudgement');// 构建 vote 对象
     voteJudgement.set('isAgree', true);
     var targetUser = AV.Object.createWithoutData('_User', currentUser);
     voteJudgement.set('createdBy', targetUser);
@@ -52,13 +54,23 @@ Page({
     voteJudgement.save();
 
     index++;
-    this.fetchJudgement(10);
+    console.log('agree'+index);
+    if (index >= judgements.length) {
+      wx.redirectTo({
+        url: '../compose/compose'
+      })
+
+    }
+    else {
+      this.fetchJudgement(100);
+    }
 
 
 
   },
 
   onTapDisagree: function () {
+    currentUser = app.globalData.user.toJSON().objectId;
     //投票值显示归零
     this.setData({
       votePercent: 50
@@ -69,14 +81,40 @@ Page({
     judgement.increment('disagreeCount', 1);
     // 保存到云端
     judgement.save();
+
+    var voteJudgement = new AV.Object('VoteJudgement');// 构建 vote 对象
+    voteJudgement.set('isAgree', false);
+    var targetUser = AV.Object.createWithoutData('_User', currentUser);
+    voteJudgement.set('createdBy', targetUser);
+    var targetJudgement = AV.Object.createWithoutData('Judgement', currentJudgement);
+    voteJudgement.set('forJudgement', targetJudgement);
+
+    console.log(currentUser);
+    console.log(currentJudgement);
+
+    voteJudgement.save();
+
     index++;
-    this.fetchJudgement(10);
+
+    if (index >= judgements.length) {
+      wx.redirectTo({
+        url: '../compose/compose'
+      })
+
+    }
+    else{
+      this.fetchJudgement(100);
+    }
+
 
 
 
   },
 
   fetchJudgement: function (limit) {
+
+
+
     var that = this;
     new AV.Query('Judgement')
       .descending('createdAt')
@@ -103,28 +141,35 @@ Page({
 
         if (isOperated){
           index++;
-          console.log('currentJudgement = if 104');
-
-          that.setData({
-            judgementIndex: 7,
-          });
-          console.log('111');
+          that.fetchJudgement(100);
+          console.log('107' + index);
         }
         else{
           console.log('114');
           var agreeCount = judgements[index].get('agreeCount');
           var disagreeCount = judgements[index].get('disagreeCount');
-          currentUser = app.globalData.user.toJSON().objectId;
+        
           if (agreeCount != 0 || disagreeCount != 0) {
             var ratio = disagreeCount / (agreeCount + disagreeCount) * 100;
           }
+          //生成随机背景
+          var random = Math.random() * 1000;
+
           that.setData({
             judgement: judgements[index],
-            votePercent: ratio
+            votePercent: ratio,
+            imagePosition: random
           });
-          console.log(this.data.judgement);
 
         }
+
+        if (index >= judgement.length) {
+          wx.redirectTo({
+            url: '../compose/compose'
+          })
+
+        }
+
 
       },
 
@@ -135,6 +180,7 @@ Page({
   },
 
   fetchUserJudgement: function () {
+    judgeHistory = [];
     var that = this;
     currentUser = app.globalData.user.toJSON().objectId;
     var createdBy = AV.Object.createWithoutData('createdBy', currentUser);
@@ -166,9 +212,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    index = 0;
+    this.fetchJudgement(100);
     this.fetchUserJudgement();
-
-
   
   },
 
@@ -176,11 +222,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    index = 0;
-    this.fetchJudgement(10);
 
-
-  
   },
 
   /**
@@ -222,6 +264,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    return {
+      title: "某人有个看法想让你评价一下",
+      path: '/pages/judge/judge',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   
   }
 })

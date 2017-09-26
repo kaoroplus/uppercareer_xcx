@@ -2,3 +2,9 @@
 .weui-textarea{
   height: 500rpx;
 }
+
+.empty-indicator{
+  display: flex;
+  justify-content: center;
+  padding: 100rpx 0;
+}

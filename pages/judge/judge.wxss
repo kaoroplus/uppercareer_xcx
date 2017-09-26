@@ -29,7 +29,6 @@
   justify-content: center;
   padding:40rpx 0;
   background-image: url('http://ac-5q64ocbv.clouddn.com/50ba5a0892e40b7b7758.jpg'); 
-  background-position-y: 550rpx;
   
 }
 

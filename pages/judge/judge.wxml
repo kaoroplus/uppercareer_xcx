@@ -2,7 +2,7 @@
 <view class="container">
 <view class="page-background">
 <view class="post-block">
-  <view class="avatar-view">
+  <view class="avatar-view" style = "background-position-y: {{imagePosition}}rpx">
     <image class="avatar"  src="{{judgement.createdBy.avatarUrl}}"></image>
   </view>
   <view class="nickname-view">
@@ -24,7 +24,7 @@
     </view>
   </view>
   <view class="weui-progress__bar">
-    <progress backgroundColor="#6c99d8" activeColor="#F87094" percent="{{votePercent}}" stroke-width="10" />
+    <progress backgroundColor="#6c99d8" activeColor="#F87094" percent="{{votePercent}}" stroke-width="20" />
   </view>
 </view>
 
