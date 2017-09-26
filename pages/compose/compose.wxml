@@ -1,14 +1,19 @@
 <!--pages/compose/compose.wxml-->
-<view class="weui-cells__title">文本框输入标题</view>
+<view class="weui-cells__title">你想做啥？（例：高考250能上清华么？）</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell">
       <view class="weui-cell__bd">
-      <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
-      <view class="weui-textarea-counter">0/3000</view>
+      <textarea class="weui-textarea" bindinput="contentInput" placeholder="请输入文本" style="height: 3.3em" />
+      <view class="weui-textarea-counter"></view>
     </view>
   </view>
 </view>
 
+
+
+<button class="weui-btn" type="primary" bindtap="onTapSubmit" disabled="{{isSubmitDisabled}}">提交</button>
+
+<!--
    <view class="page__bd">
         <view class="weui-cells">
             <view class="weui-cell">
@@ -35,6 +40,4 @@
             </view>
         </view>
     </view>
-
-
-    <button class="weui-btn" type="primary">页面主操作 Normal</button>
+-->

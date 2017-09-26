@@ -1,9 +1,12 @@
 /* pages/judge/judge.wxss */
 
 .page-background{
-  background: linear-gradient(#71d6e8,#6c99d8);
+  background-color: whitesmoke;
+  /*background: linear-gradient(#D2B0CE,#F87094);*/
+  /*background: linear-gradient(#71d6e8,#6c99d8);*/
 
   height: 100vh;
+  width: 100%;
 
 
 }
@@ -13,6 +16,7 @@
 
   margin: 40rpx;
   border-radius: 20rpx;
+
 
  
 
@@ -24,7 +28,8 @@
   display:flex;
   justify-content: center;
   padding:40rpx 0;
-
+  background-image: url('http://ac-5q64ocbv.clouddn.com/50ba5a0892e40b7b7758.jpg'); 
+  background-position-y: 550rpx;
   
 }
 
@@ -51,38 +56,66 @@
   background-color: #fff;
   font-size: 32rpx;
   padding: 40rpx;
+  max-height: 200rpx;
 }
 
-
-.btn-area{
-  display: flex;
-  justify-content: space-around;
+.bottom-area{
   position: fixed;
-  bottom: 100rpx;
+  bottom: 0;
   left: 0;
   right: 0;
 }
 
+.btn-area{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx 0;
+  
+
+}
+
+.agree-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.agree-count{
+  color:black;
+  font-size: 24rpx;
+}
+
 .agree-btn{
-  width:200rpx;
+    width: 250rpx;
+  height: 250rpx;
+}
+
+.disagree-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.disagree-count{
+  color:black;
+  font-size: 24rpx;
 }
 
 .disagree-btn{
-  width:200rpx;
+    width: 250rpx;
+  height: 250rpx;
 }
 
 .compose-btn{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 100rpx;
-  background-color: red;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 
 .weui-progress__bar{
-  position: fixed;
-  bottom: 50rpx;
-  left: 40rpx;
-  right: 40rpx;
+
+
 
 }
+

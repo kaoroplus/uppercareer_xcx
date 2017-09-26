@@ -1,1 +1,4 @@
 /* pages/compose/compose.wxss */
+.weui-textarea{
+  height: 500rpx;
+}

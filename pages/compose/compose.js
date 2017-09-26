@@ -1,7 +1,14 @@
 // pages/compose/compose.js
+const AV = require('../../utils/av-weapp-min');
+var app = getApp();
+
 Page({
 
+  
+
   data: {
+    content: "",
+    isSubmitDisabled: true,
     files: [],
     isUploadHidden:false,
     lock: false
@@ -64,6 +71,50 @@ Page({
         }
       }
     })
+  },
+
+
+  onTapSubmit: function (options) {
+
+    if (this.data.content.length != 0) {
+      var createdBy = app.globalData.user.toJSON().objectId;// 小程序预设用户
+      var judgementBody = this.data.content;
+      console.log(createdBy);
+      console.log(judgementBody);
+
+
+
+      var judgement = new AV.Object('Judgement');// 构建 Comment 对象
+      judgement.set('content', judgementBody);
+      var targetUser = AV.Object.createWithoutData('_User', createdBy);
+      judgement.set('createdBy', targetUser);
+
+      judgement.save();
+    }
+
+    wx.redirectTo({
+      url: '../judge/judge'
+    })
+
+
+  },
+
+  contentInput: function (e) {
+    this.setData({
+      content: e.detail.value
+    });
+
+    if (this.data.content.length != 0) {
+      this.setData({
+        isSubmitDisabled: false
+      });
+    }
+
+    if (this.data.content.length == 0) {
+      this.setData({
+        isSubmitDisabled: true
+      });
+    }
   },
 
   /**

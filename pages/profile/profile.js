@@ -26,7 +26,7 @@ Page({
   },
 
   onTapFind: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../judge/judge'
     })
 

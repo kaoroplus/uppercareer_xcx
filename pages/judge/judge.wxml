@@ -3,15 +3,33 @@
 <view class="page-background">
 <view class="post-block">
   <view class="avatar-view">
-    <image class="avatar"  src="../../images/explore.png"></image>
+    <image class="avatar"  src="{{judgement.createdBy.avatarUrl}}"></image>
   </view>
   <view class="nickname-view">
-    <text class="text-title">示例用户</text>
+    <text class="text-title">{{judgement.createdBy.nickname}}</text>
   </view>
   <view class="post-content">
-    <text class="text-content">这是一条测试post，用户可以在下方选择我觉得可以或者我觉得不行，这是一条非常长的描述</text>
+    <text class="text-content">{{judgement.content}}</text>
   </view>
 </view>
+
+<view class="bottom-area">
+  <view class="btn-area">
+    <view class="disagree-view">
+      <image class="disagree-btn" src="../../images/buxing3.png" bindtap='onTapDisagree'></image>
+    </view>
+    <image class="compose-btn" src="../../images/compose.png" bindtap='onTapCompose'></image>
+    <view class="agree-view">
+      <image class="agree-btn" src="../../images/keyi3.png" bindtap='onTapAgree'></image>
+    </view>
+  </view>
+  <view class="weui-progress__bar">
+    <progress backgroundColor="#6c99d8" activeColor="#F87094" percent="{{votePercent}}" stroke-width="10" />
+  </view>
+</view>
+
+
+
 </view>
 </view>
 
