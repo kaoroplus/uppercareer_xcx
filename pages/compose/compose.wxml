@@ -3,14 +3,23 @@
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell">
       <view class="weui-cell__bd">
-      <textarea class="weui-textarea" bindinput="contentInput" placeholder="“感觉月薪8000能在北京生活的相当不错”" style="height: 3.3em" />
+      <textarea class="weui-textarea" bindinput="contentInput" placeholder="“感觉月薪8000能在北京生活的相当不错”" style="height: 7em" />
       <view class="weui-textarea-counter"></view>
     </view>
+  </view>  
+</view>
+<view class="weui-uploader__bd">
+  <view class="weui-uploader__files" id="uploaderFiles">
+      <block wx:for="{{files}}" wx:key="*this">
+          <view class="weui-uploader__file" bindtap="previewImage" bindlongtap="deleteImage" bindtouchend="onTouchend" id="{{item}}">
+              <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          </view>
+      </block>
+  </view>
+  <view class="weui-uploader__input-box" hidden="{{isUploadHidden}}">
+      <view class="weui-uploader__input" bindtap="chooseImage"></view>
   </view>
 </view>
-
-
-
 <button class="weui-btn" type="primary" bindtap="onTapSubmit" disabled="{{isSubmitDisabled}}">提交</button>
 <view class="empty-indicator">
   <image mode="aspectFit" src="http://ac-5q64ocbv.clouddn.com/2787f0d6104079a4ae5a.png"></image>

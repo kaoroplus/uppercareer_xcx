@@ -17,7 +17,7 @@
   </view>
   <view class="btn-container" bindtap="onTapFind">
     <image class="btn-icon" src="../../images/find.png"></image>
-    <text class="btn-text">内容搜索</text>
+    <text class="btn-text">介视...</text>
   </view>
   <view class="btn-container" bindtap="onTapEvaluate">
     <image class="btn-icon" src="../../images/evaluate.png"></image>

@@ -128,6 +128,7 @@ Page({
         console.log('currentJudgement = ' + currentJudgement);
 
         var isOperated = false;
+        /*
         for (var operIndex = 0; operIndex < judgeHistory.length; operIndex++)
         {
           console.log('judgeHistory = ' + judgeHistory[operIndex]);
@@ -138,6 +139,12 @@ Page({
             break;
           }
         }
+        */
+
+        wx.getStorage({
+          key: currentJudgement,
+          success: function(res) {isOperated = true},
+        })
 
         if (isOperated){
           index++;
@@ -189,17 +196,25 @@ Page({
       .equalTo('createdBy', createdBy)
       .find()
       .then(function (result) {
-
+/*
         for(var i = 0; i < result.length; i++){
           var id = result[i].get('forJudgement');
           judgeHistory.push(id.id);
           console.log(id.id)
 
         }
-
         console.log(judgeHistory)
+*/
+        for (var i = 0; i < result.length; i++){
+          wx.setStorage({
+            key: result[i].get('forJudgement').id,
+            data: result[i].get('forJudgement').isAgreed,
+          })
+        }
+
 
       },
+
       function (error) {
         // 异常处理
         console.error(error);
