@@ -3,7 +3,7 @@
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell">
       <view class="weui-cell__bd">
-      <textarea class="weui-textarea" bindinput="contentInput" placeholder="“感觉月薪8000能在北京生活的相当不错”" style="height: 3.3em" />
+      <textarea class="weui-textarea" bindinput="contentInput" placeholder="“感觉月薪8000能在北京生活的相当不错”" style="height: 7em" />
       <view class="weui-textarea-counter"></view>
     </view>
   </view>  
