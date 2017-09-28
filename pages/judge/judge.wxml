@@ -11,6 +11,7 @@
   <view class="post-content">
     <text class="text-content">{{judgement.content}}</text>
   </view>
+  
 </view>
 
 <view class="bottom-area">

@@ -18,6 +18,7 @@ Page({
     judgementIndex: 0,
     judgement: null,
     imagePosition: 550
+    
   },
 
   onTapCompose: function () {
