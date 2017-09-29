@@ -49,14 +49,14 @@ Page({
     var targetJudgement = AV.Object.createWithoutData('Judgement', currentJudgement);
     voteJudgement.set('forJudgement', targetJudgement);
 
-    console.log(currentUser);
-    console.log(currentJudgement);
-
     voteJudgement.save();
 
     index++;
-    console.log('agree'+index);
+    //console.log('agree'+index);
+    console.log("agree = " + index)
+    console.log("judgements.length = " + judgements.length)
     if (index >= judgements.length) {
+
       wx.redirectTo({
         url: '../compose/compose'
       })
@@ -97,6 +97,9 @@ Page({
 
     index++;
 
+    console.log("disagree = " + index)
+    console.log("judgements.length = " + judgements.length)
+
     if (index >= judgements.length) {
       wx.redirectTo({
         url: '../compose/compose'
@@ -106,16 +109,9 @@ Page({
     else{
       this.fetchJudgement(100);
     }
-
-
-
-
   },
 
   fetchJudgement: function (limit) {
-
-
-
     var that = this;
     new AV.Query('Judgement')
       .descending('createdAt')
@@ -126,56 +122,36 @@ Page({
         judgements = judgement
         console.log(judgements);
         currentJudgement = judgements[index].get('objectId');
-        console.log('currentJudgement = ' + currentJudgement);
-
-        var isOperated = false;
-        /*
-        for (var operIndex = 0; operIndex < judgeHistory.length; operIndex++)
-        {
-          console.log('judgeHistory = ' + judgeHistory[operIndex]);
-
-          if (currentJudgement == judgeHistory[operIndex])
-          {
-            isOperated = true;
-            break;
-          }
-        }
-        */
 
         wx.getStorage({
           key: currentJudgement,
-          success: function(res) {isOperated = true},
+          success: function (res) {
+            index++;
+            that.fetchJudgement(100);
+            console.log('107' + index);
+          },
+          fail: function () {
+            var agreeCount = judgements[index].get('agreeCount');
+            var disagreeCount = judgements[index].get('disagreeCount');
+
+            if (agreeCount != 0 || disagreeCount != 0) {
+              var ratio = disagreeCount / (agreeCount + disagreeCount) * 100;
+            }
+            //生成随机背景
+            var random = Math.random() * 1000;
+
+            that.setData({
+              judgement: judgements[index],
+              votePercent: ratio,
+              imagePosition: random
+            });
+          },
         })
-
-        if (isOperated){
-          index++;
-          that.fetchJudgement(100);
-          console.log('107' + index);
-        }
-        else{
-          console.log('114');
-          var agreeCount = judgements[index].get('agreeCount');
-          var disagreeCount = judgements[index].get('disagreeCount');
-        
-          if (agreeCount != 0 || disagreeCount != 0) {
-            var ratio = disagreeCount / (agreeCount + disagreeCount) * 100;
-          }
-          //生成随机背景
-          var random = Math.random() * 1000;
-
-          that.setData({
-            judgement: judgements[index],
-            votePercent: ratio,
-            imagePosition: random
-          });
-
-        }
 
         if (index >= judgement.length) {
           wx.redirectTo({
             url: '../compose/compose'
           })
-
         }
 
 
@@ -212,8 +188,6 @@ Page({
             data: result[i].get('forJudgement').isAgreed,
           })
         }
-
-
       },
 
       function (error) {
