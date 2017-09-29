@@ -13,7 +13,6 @@
 
   
 
-  border-radius: 20rpx;
   position: fixed;
   bottom: 350rpx;
   left: 40rpx;
