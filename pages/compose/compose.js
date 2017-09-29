@@ -32,9 +32,10 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         that.setData({
-          files: that.data.files.concat(res.tempFilePaths),
+          files: res.tempFilePaths,
           isUploadHidden: true
         });
+        
       }
     })
   },
@@ -89,7 +90,38 @@ Page({
       var targetUser = AV.Object.createWithoutData('_User', createdBy);
       judgement.set('createdBy', targetUser);
 
-      judgement.save();
+
+      var tempFilePath = this.data.files[0];
+
+      if (tempFilePath != null) {
+
+        new AV.File('image-judgement.jpg', {
+          blob: {
+            uri: tempFilePath,
+          },
+        }).save()
+        .then(function (file)
+        {
+          var url = file.url();
+          console.log(url);
+          judgement.set('imageUrl',url);
+          judgement.save();
+
+          }, function (error) {
+            // 异常处理
+            console.error(error);
+          });
+
+      }
+
+      else {
+        judgement.set('imageUrl', 'no-image');
+        judgement.save();
+      }
+
+      
+
+
     }
 
     wx.redirectTo({

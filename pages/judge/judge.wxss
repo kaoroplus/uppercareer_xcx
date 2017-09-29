@@ -1,53 +1,65 @@
 /* pages/judge/judge.wxss */
 
 .page-background{
-  background-color: whitesmoke;
   /*background: linear-gradient(#D2B0CE,#F87094);*/
   /*background: linear-gradient(#71d6e8,#6c99d8);*/
 
-  height: 100vh;
+  
   width: 100%;
 
 
 }
 .post-block{
-  margin: 40rpx;
+
+  
+
+  position: fixed;
+  bottom: 350rpx;
+  left: 40rpx;
+  right: 40rpx;
+  top: 200rpx;
+
+ 
+
+  
   border-radius: 20rpx;
 }
 
 .avatar-view{
-  width:100%;
+  margin:40rpx;
   display:flex;
-  justify-content: center;
-  padding:40rpx 0;
-  background-image: url('http://ac-5q64ocbv.clouddn.com/50ba5a0892e40b7b7758.jpg'); 
+  padding:40rpx 40rpx;
+  background-image: url('http://ac-5q64ocbv.clouddn.com/50ba5a0892e40b7b7758.jpg');  
+  border-radius: 20rpx;
   
 }
 
 .avatar{
-  width: 150rpx;
-  height: 150rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 100rpx;
   background-color: #f9f9f9;
   
 }
 
 
-.nickname-view{
-  display:flex;
-  background-color: #fff;
+.nickname{
+  color: #fff;
+  padding-left: 40rpx;
   justify-content: center;
-  font-weight: bold;
-  padding-bottom: 10rpx;
   font-family: 微软雅黑,Helvetica,sans-serif;
-  padding-top: 20rpx;
 }
 
 .post-content{
   background-color: #fff;
   font-size: 32rpx;
   padding: 40rpx;
-  max-height: 200rpx;
+
+}
+
+.image-content{
+  padding: 40rpx 0;
+  width:590rpx;
 }
 
 .bottom-area{
