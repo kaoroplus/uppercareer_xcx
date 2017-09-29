@@ -122,53 +122,31 @@ Page({
       .find()
       .then(function (judgement) {
         judgements = judgement
-        console.log(judgements);
-        currentJudgement = judgements[index].get('objectId');
 
-        wx.getStorage({
-          key: currentJudgement,
-          success: function (res) {
-            index++;
-            that.fetchJudgement(100);
-            console.log('107' + index);
-          },
-          fail: function () {
-            var agreeCount = judgements[index].get('agreeCount');
-            var disagreeCount = judgements[index].get('disagreeCount');
-
-        if (isOperated){
-          index++;
-          that.fetchJudgement(100);
-          console.log('107' + index);
+        var agreeCount = judgements[index].get('agreeCount');
+        var disagreeCount = judgements[index].get('disagreeCount');
+        var images = [];
+        var image = judgements[index].get('imageUrl');
+        images.push(image);
+      
+        if (agreeCount != 0 || disagreeCount != 0) {
+          var ratio = disagreeCount / (agreeCount + disagreeCount) * 100;
         }
-        else{
-          console.log('114');
-          var agreeCount = judgements[index].get('agreeCount');
-          var disagreeCount = judgements[index].get('disagreeCount');
-          var images = [];
-          var image = judgements[index].get('imageUrl');
-          images.push(image);
-        
-          if (agreeCount != 0 || disagreeCount != 0) {
-            var ratio = disagreeCount / (agreeCount + disagreeCount) * 100;
-          }
-          //生成随机背景
-          var random = Math.random() * 1000;
+        //生成随机背景
+        var random = Math.random() * 1000;
 
-          that.setData({
-            judgement: judgements[index],
-            votePercent: ratio,
-            imagePosition: random,
-            images:images,
-          });
+        that.setData({
+          judgement: judgements[index],
+          votePercent: ratio,
+          imagePosition: random,
+          images:images,
+        });
 
         if (index >= judgement.length) {
           wx.redirectTo({
             url: '../compose/compose'
           })
         }
-
-
       },
 
       function (error) {
