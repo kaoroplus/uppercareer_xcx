@@ -17,8 +17,13 @@ Page({
     votePercent: 50,
     judgementIndex: 0,
     judgement: null,
+<<<<<<< HEAD
     imagePosition: 550,
     images:[]
+=======
+    imagePosition: 550
+    
+>>>>>>> 886b71794aaeb7b940184fed6b599104619b9861
   },
 
   onTapCompose: function () {
