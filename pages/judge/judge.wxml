@@ -1,15 +1,17 @@
 <!--pages/judge/judge.wxml-->
 <view class="container">
 <view class="page-background">
-<view class="post-block">
   <view class="avatar-view" style = "background-position-y: {{imagePosition}}rpx">
     <image class="avatar"  src="{{judgement.createdBy.avatarUrl}}"></image>
+    <text class="nickname">{{judgement.createdBy.nickname}}</text>
   </view>
-  <view class="nickname-view">
-    <text class="text-title">{{judgement.createdBy.nickname}}</text>
-  </view>
+<view class="post-block">
   <view class="post-content">
     <text class="text-content">{{judgement.content}}</text>
+    <image class="image-content" bindtap="previewImage" src="{{judgement.imageUrl}}" mode="widthFix"></image>
+  </view>
+  <view class="post-image">
+    
   </view>
 </view>
 

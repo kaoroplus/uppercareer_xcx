@@ -17,7 +17,8 @@ Page({
     votePercent: 50,
     judgementIndex: 0,
     judgement: null,
-    imagePosition: 550
+    imagePosition: 550,
+    images:[]
   },
 
   onTapCompose: function () {
@@ -155,6 +156,9 @@ Page({
           console.log('114');
           var agreeCount = judgements[index].get('agreeCount');
           var disagreeCount = judgements[index].get('disagreeCount');
+          var images = [];
+          var image = judgements[index].get('imageUrl');
+          images.push(image);
         
           if (agreeCount != 0 || disagreeCount != 0) {
             var ratio = disagreeCount / (agreeCount + disagreeCount) * 100;
@@ -165,7 +169,8 @@ Page({
           that.setData({
             judgement: judgements[index],
             votePercent: ratio,
-            imagePosition: random
+            imagePosition: random,
+            images:images,
           });
 
         }
@@ -221,6 +226,12 @@ Page({
       });
 
 
+  },
+
+  previewImage: function (e) {
+    wx.previewImage({
+      urls: this.data.images // 需要预览的图片http链接列表
+    })
   },
 
   /**
