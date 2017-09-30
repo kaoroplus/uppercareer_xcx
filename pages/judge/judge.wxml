@@ -8,7 +8,7 @@
 <view class="post-block">
   <view class="post-content">
     <text class="text-content">{{judgement.content}}</text>
-    <image class="image-content" bindtap="previewImage" src="{{judgement.imageUrl}}" mode="widthFix"></image>
+    <image class="image-content" bindtap="previewImage" src="{{judgement.imageUrl}}" mode="aspectFit"></image>
   </view>
   <view class="post-image">
     

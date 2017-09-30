@@ -134,13 +134,15 @@ Page({
         }
         //生成随机背景
         var random = Math.random() * 1000;
-
+        currentJudgement = judgements[index].get('objectId')
         that.setData({
           judgement: judgements[index],
           votePercent: ratio,
           imagePosition: random,
           images:images,
         });
+
+        currentJudgement = judgement.get('objectId')
 
         if (index >= judgement.length) {
           wx.redirectTo({
@@ -165,7 +167,7 @@ Page({
       .equalTo('createdBy', createdBy)
       .find()
       .then(function (result) {
-/*
+    /*
         for(var i = 0; i < result.length; i++){
           var id = result[i].get('forJudgement');
           judgeHistory.push(id.id);
@@ -173,7 +175,7 @@ Page({
 
         }
         console.log(judgeHistory)
-*/
+    */
         for (var i = 0; i < result.length; i++){
           wx.setStorage({
             key: result[i].get('forJudgement').id,
@@ -202,7 +204,7 @@ Page({
   onLoad: function (options) {
     index = 0;
     this.fetchJudgement(100);
-    this.fetchUserJudgement();
+    //this.fetchUserJudgement();
   
   },
 
